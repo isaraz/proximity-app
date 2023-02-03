@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
-/* GET products listing. */
+/* GET months listing. */
 router.get('/', function(req, res, next) {
-    // res.send('/products')
-  db("SELECT * FROM products;")
+  db("SELECT * FROM months;")
     .then(results => {
       res.send(results.data);
     })
