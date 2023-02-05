@@ -10,7 +10,7 @@ function App() {
   
 <h1>Find in season products in your area</h1>
 
-  <form>
+  <form className='container'>
     <label> Select your country </label>
       <div className='location_container'></div>
       <CountriesSelect/>
@@ -27,8 +27,8 @@ function App() {
     <TypesSelect/>
   </div>
 
-  <div className='submit_btn'>
-    <button type='submit'>Find products</button>
+  <div className='submit'>
+    <button className='submit_btn' type='submit'>Find products</button>
   </div>
 
   </form>
