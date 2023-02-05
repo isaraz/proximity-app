@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors') //added
 
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
@@ -12,6 +13,7 @@ var typesRouter = require('./routes/types');
 var seasonsRouter = require('./routes/seasons');
 
 var app = express();
+app.use(cors()) //added
 
 app.use(logger('dev'));
 app.use(express.json());

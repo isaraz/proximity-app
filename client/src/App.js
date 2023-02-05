@@ -1,37 +1,37 @@
 import './App.css';
+import CountriesSelect from './countriesSelect';
+import MonthsSelect from './monthSelect';
+import TypesSelect from './typesSelect';
+
 
 function App() {
   return (
     <div className="App">
   
-  <form>
-    <label> Find in season products in your area </label>
-      <div className='location_container'></div>
-        <select name="location" id="location">
-          <option value="spain">Spain</option>
-          <option value="france">France</option>
-        </select>
-  </form>
+<h1>Find in season products in your area</h1>
 
-  <div className="months_btngroup">
-    <button className="jan-btn">January</button>
-    <button className="feb-btn">February</button>
-    <button className="mar-btn">March</button>
-    <button className="apr-btn">April</button>
-    <button className="may-btn">May</button>
-    <button className="jun-btn">June</button>
-    <button className="jul-btn">July</button>
-    <button className="aug-btn">August</button>
-    <button className="sep-btn">September</button>
-    <button className="oct-btn">October</button>
-    <button className="nov-btn">November</button>
-    <button className="dec-btn">December</button>
+  <form>
+    <label> Select your country </label>
+      <div className='location_container'></div>
+      <CountriesSelect/>
+
+  <div>
+  <label> Select a month </label>
+  <div className='months_container'></div>
+    <MonthsSelect/>
   </div>
 
-<div className="prodType">
-  <button className="veg-btn">Vegetables</button>
-  <button className="fru-btn">Fruits</button>
-</div>
+  <div>
+  <label> Select a product type  </label>
+  <div className='types_container'></div>
+    <TypesSelect/>
+  </div>
+
+  <div className='submit_btn'>
+    <button type='submit'>Find products</button>
+  </div>
+
+  </form>
 
 <div className="prodList">
 <div class="row">
