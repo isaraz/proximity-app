@@ -30,3 +30,4 @@ npm start
 |/months|GET|Gets months by id||{ <br> ID: int <br> Name: string <br> }| 
 |/seasons|GET|Gets seasons by id||{ <br> ID: int <br> Name: string <br> }| 
 
+_This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
