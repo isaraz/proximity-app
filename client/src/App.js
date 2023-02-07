@@ -1,56 +1,40 @@
+import React, { useState } from "react";
 import './App.css';
-import CountriesSelect from './countriesSelect';
-import MonthsSelect from './monthSelect';
-import TypesSelect from './typesSelect';
+import CountriesSelect from './components/countriesSelect';
+import MonthsSelect from './components/monthSelect';
+import TypesSelect from './components/typesSelect';
+import ProductsList from './components/productsList';
 
 
 function App() {
+
+  const [selectedCountryID, setSelectedCountryID] = useState()
+
+  const handleSubmit= () => {
+    console.log("submit")
+  }
+
   return (
     <div className="App">
-  
-<h1>Find in season products in your area</h1>
-
-  <form className='container'>
-    <label> Select your country </label>
-      <div className='location_container'></div>
-      <CountriesSelect/>
-
-  <div>
-  <label> Select a month </label>
-  <div className='months_container'></div>
-    <MonthsSelect/>
-  </div>
-
-  <div>
-  <label> Select a product type  </label>
-  <div className='types_container'></div>
-    <TypesSelect/>
-  </div>
-
-  <div className='submit'>
-    <button className='submit_btn' type='submit'>Find products</button>
-  </div>
-
-  </form>
-
-<div className="prodList">
-<div class="row">
-  <div class="column">
-    <div class="card">Banana</div>
-  </div>
-  <div class="column">
-    <div class="card">Avocado</div>
-  </div>
-  <div class="column">
-    <div class="card">Artichoke</div>
-  </div>
-  <div class="column">
-    <div class="card">Apricot</div>
-  </div>
-</div>
-
-</div>
-
+      <h1>Find in season products in your area</h1>
+      <div className='container'>
+        <label> Select your country </label>
+          <div className='location_container'>
+            <CountriesSelect setSelectedCountryID={setSelectedCountryID}/> 
+          </div>
+        <label> Select a month </label>
+        <div className='months_container'>
+          <MonthsSelect/>
+        </div>
+        <label> Select a product type  </label>
+        <div className='types_container'>
+          <TypesSelect/>
+        </div>
+        <div className='submit'>
+          <button className='submit_btn' onClick={handleSubmit}>Find products</button>
+        </div>
+      </div>
+      {selectedCountryID && <ProductsList countryID={selectedCountryID} monthID={1} typeID={2} />}
     </div>
   );
 }

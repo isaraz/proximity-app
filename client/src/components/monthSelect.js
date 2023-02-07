@@ -14,7 +14,6 @@ const [months, setMonths] = useState([])
       const getMonths = async () => {
         const req = await fetch(`${HOSTNAME}/months`);
         const res = await req.json();
-        console.log(res);
         setMonths(res);  
       };
 

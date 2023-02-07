@@ -14,7 +14,6 @@ const [types, setTypes] = useState([])
       const getTypes = async () => {
         const req = await fetch(`${HOSTNAME}/types`);
         const res = await req.json();
-        console.log(res);
         setTypes(res);  
       };
 
