@@ -9,6 +9,7 @@ import ProductsList from './components/productsList';
 function App() {
 
   const [selectedCountryID, setSelectedCountryID] = useState()
+  const [selectedMonthID, setSelectedMonthID] = useState()
 
   const handleSubmit= () => {
     console.log("submit")
@@ -24,7 +25,7 @@ function App() {
           </div>
         <label> Select a month </label>
         <div className='months_container'>
-          <MonthsSelect/>
+          <MonthsSelect setSelectedMonthID={setSelectedMonthID}/>
         </div>
         <label> Select a product type  </label>
         <div className='types_container'>
@@ -34,7 +35,7 @@ function App() {
           <button className='submit_btn' onClick={handleSubmit}>Find products</button>
         </div>
       </div>
-      {selectedCountryID && <ProductsList countryID={selectedCountryID} monthID={1} typeID={2} />}
+      {selectedCountryID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={2} />}
     </div>
   );
 }
