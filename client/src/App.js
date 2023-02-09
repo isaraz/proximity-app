@@ -10,6 +10,7 @@ function App() {
 
   const [selectedCountryID, setSelectedCountryID] = useState()
   const [selectedMonthID, setSelectedMonthID] = useState()
+  const [selectedTypeID, setSelectedTypeID] = useState()
 
   const handleSubmit= () => {
     console.log("submit")
@@ -29,13 +30,13 @@ function App() {
         </div>
         <label> Select a product type  </label>
         <div className='types_container'>
-          <TypesSelect/>
+          <TypesSelect setSelectedTypeID={setSelectedTypeID}/>
         </div>
         <div className='submit'>
           <button className='submit_btn' onClick={handleSubmit}>Find products</button>
         </div>
       </div>
-      {selectedCountryID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={2} />}
+      {selectedCountryID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={selectedTypeID} />}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const HOSTNAME = 'http://localhost:5000';
 
 
-function TypesSelect () {
+function TypesSelect ({setSelectedTypeID}) {
 
 const [types, setTypes] = useState([])
 
@@ -17,9 +17,14 @@ const [types, setTypes] = useState([])
         setTypes(res);  
       };
 
+      const handleChange = (event) => {
+        console.log(event.target.value)
+        setSelectedTypeID(event.target.value)
+      }
+
     return (
-        <select name="types" id="types">
-            {types.map(types => <option value={types.ID}>{types.Name}</option>)}
+        <select name="types" id="types" onChange={event => handleChange(event)}>
+            {types.map(type => <option value={type.ID}>{type.Name}</option>)}
         </select>
     );
 }
