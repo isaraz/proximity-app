@@ -22,7 +22,7 @@ const [products, setProducts] = useState([])
     <div>
         <div class="row">
             {products.map(item => 
-                <div class="column">
+                <div class="column" key={item.ID}>
                     <div class="card">{item.Name}</div>
                 </div>
             )}
