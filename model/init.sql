@@ -88,6 +88,48 @@ CREATE TABLE Products (
     INSERT INTO Products (Name, TypeID) VALUES('Green beans', 1);
     INSERT INTO Products (Name, TypeID) VALUES('Green garlic', 1);
 
+CREATE TABLE Product_Season (
+    ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    ProductID BIGINT NOT NULL,
+    SeasonID BIGINT NOT NULL,
+    MonthID BIGINT NOT NULL,
+    CountryID BIGINT NOT NULL,
+)
+
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 2, 2, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 1, 3, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 1, 4, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 2, 5, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 8, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 1, 5, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 1, 6, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 2, 7, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(4, 1, 1, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(4, 1, 2, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(4, 1, 3, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(4, 1, 4, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(4, 2, 5, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 1, 1, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 1, 2, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 1, 3, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 1, 4, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 1, 5, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 2, 6, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(5, 2, 7, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 1, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 2, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 3, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 4, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 5, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 6, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(6, 1, 7, 1);
+    INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(7, 2, 6, 1);
+
+
+
+
+
+
 
 
 
