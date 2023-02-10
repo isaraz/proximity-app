@@ -4,6 +4,7 @@ This project consists of a web app where you can search in season products per c
 
 ### Wireframe screenshots
 
+![This is a alt text.](https://github.com/isaraz/proximity-app/blob/main/proximity%20desktop.jpg?raw=true)
 ![This is a alt text.](https://github.com/isaraz/proximity-app/blob/main/wiref.jpg?raw=true)
 
 ### How to run this project
