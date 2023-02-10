@@ -11,8 +11,10 @@ This project consists of a web app where you can search in season products per c
 Once you've download or cloned the project:
 
 1. Create an .env file and add your credentials
-2. create a database named _proximity_
-3. then create tables in local executing
+
+2. Create a database named _proximity_
+
+3. Then create tables in local executing
 ```
 npm run migrate
 ```
