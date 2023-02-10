@@ -7,7 +7,16 @@ This project consists of a web app where you can search in season products per c
 ![This is a alt text.](https://github.com/isaraz/proximity-app/blob/main/wiref.jpg?raw=true)
 
 ### How to run this project
-Once you've download or cloned the project, install it with:
+
+Once you've download or cloned the project:
+
+1. Create an .env file and add your credentials
+2. create a database named _proximity_
+3. then create tables in local executing
+```
+npm run migrate
+```
+4. Then install it with:
 ```
 npm install
 ```
