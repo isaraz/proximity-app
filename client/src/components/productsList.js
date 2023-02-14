@@ -5,6 +5,7 @@ const HOSTNAME = 'http://localhost:5000';
 
 function ProductsList ({countryID, monthID, typeID}) {
 //console.log("countryid del countriesSelect", countryID)
+
 const [products, setProducts] = useState([]);
 
     // Get all products
@@ -13,14 +14,14 @@ const [products, setProducts] = useState([]);
           const response = await fetch(`${HOSTNAME}/products`);
           const products = await response.json();
           setProducts(products); 
-          console.log(products);
         }
     
         getAllProducts()
       }, []);
    
+      
 
-    // Filter products
+    /*// Filter products
     useEffect(() => { 
         getMatchingProducts();
     }, [countryID, monthID, typeID]); //the component will render when any of these props be modified
@@ -30,7 +31,7 @@ const [products, setProducts] = useState([]);
         const res = await req.json();
         console.log(res);
         setProducts(res);  
-    };
+    };*/
 
     return (
     <div>

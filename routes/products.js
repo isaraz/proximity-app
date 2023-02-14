@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 
 /* GET all products that match the filter conditions */
-router.get('/filter', function(req, res, next) {
+router.get('/filter', function(req, res) {
 
 let { country } = req.query;
 let { month } = req.query;
@@ -28,6 +28,7 @@ if (!country && !month && !productType) {
   db(`select * from Product_Season ps, Products p where ps.ProductID = p.ID and ps.CountryID = "${country}" and ps.MonthID = "${month}" and p.TypeID = "${productType}";`)
     .then(results => {
       res.send(results.data);
+      console.log(results.data);
     })
     .catch(err => res.status(500).send(err));
 });
