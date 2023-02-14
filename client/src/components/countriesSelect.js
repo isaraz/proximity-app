@@ -24,7 +24,7 @@ function CountriesSelect ({setSelectedCountryID}) {
 
   return (
       <select name="location" id="location" onChange={event => handleChange(event)}>
-          {countries.map(country => <option value={country.ID}>{country.Name}</option>)}
+          {countries.map(country => <option key={country.ID} value={country.ID}>{country.Name}</option>)}
       </select>
   );
 }

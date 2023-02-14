@@ -24,7 +24,7 @@ function MonthsSelect ({setSelectedMonthID}) {
 
   return (
       <select name="months" id="months" onChange={event => handleChange(event)}>
-          {months.map(month => <option value={month.ID}>{month.Name}</option>)}
+          {months.map(month => <option key={month.ID} value={month.ID}>{month.Name}</option>)}
       </select>
   );
 }

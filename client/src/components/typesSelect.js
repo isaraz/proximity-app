@@ -24,7 +24,7 @@ const [types, setTypes] = useState([])
 
     return (
         <select name="types" id="types" onChange={event => handleChange(event)}>
-            {types.map(type => <option value={type.ID}>{type.Name}</option>)}
+            {types.map(type => <option key={type.ID} value={type.ID}>{type.Name}</option>)}
         </select>
     );
 }

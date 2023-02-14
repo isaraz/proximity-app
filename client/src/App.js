@@ -51,16 +51,11 @@ function App() {
         </div>
         <button onClick={handleSearch}>Search</button>
       </div>
-      {/*{selectedCountryID && selectedMonthID && selectedTypeID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={selectedTypeID} />}*/}
-      {products.length !== 0 ? (<div className="row">
-              {products.map((item) => {
-                  return (
-                      <div className="column" key={item.ID}>
-                      <div className="card">{item.Name}</div>
-                  </div>
-                  );
-              })}
-        </div>) : (<p>No products matched your search 😔</p>)}  
+      <div>
+      {products.length !== 0 ? 
+      (<ProductsList products={products} />) : 
+      (<p>No products in season right now.😟</p>)}  
+      </div>
     </div>
   );
 }
