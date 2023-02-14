@@ -30,7 +30,8 @@ function App() {
           <TypesSelect setSelectedTypeID={setSelectedTypeID}/>
         </div>
       </div>
-      {selectedCountryID && selectedMonthID && selectedTypeID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={selectedTypeID} />}
+      {/*{selectedCountryID && selectedMonthID && selectedTypeID && <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={selectedTypeID} />}*/}
+      <ProductsList countryID={selectedCountryID} monthID={selectedMonthID} typeID={selectedTypeID} />
     </div>
   );
 }

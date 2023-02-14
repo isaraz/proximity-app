@@ -2,12 +2,22 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
-/* GET products listing */
+/* GET all products */
 router.get('/', function(req, res, next) {
+    db("select * from Products p")
+      .then(results => {
+        res.send(results.data);
+      })
+      .catch(err => res.status(500).send(err));
+  });
 
-let country = req.query.country;
-let month = req.query.month;
-let productType = req.query.type;
+
+/* GET all products that match the filter conditions */
+router.get('/filter', function(req, res, next) {
+
+let { country } = req.query;
+let { month } = req.query;
+let { productType } = req.query;
 
 /* to get error if got no complete info */
 if (!country && !month && !productType) {
@@ -15,9 +25,7 @@ if (!country && !month && !productType) {
   return null
 }
 
-
-
-  db("select * from Product_Season ps, Products p where ps.ProductID = p.ID and ps.CountryID = " + country + " and ps.MonthID = " + month + " and p.TypeID = " + productType + ";")
+  db(`select * from Product_Season ps, Products p where ps.ProductID = p.ID and ps.CountryID = "${country}" and ps.MonthID = "${month}" and p.TypeID = "${productType}";`)
     .then(results => {
       res.send(results.data);
     })
