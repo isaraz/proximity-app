@@ -8,10 +8,12 @@ const HOSTNAME = 'http://localhost:5000';
 
 export function Home() {
   const [products, setProducts] = useState([]);
-  const [selectedCountryID, setSelectedCountryID] = useState()
-  const [selectedMonthID, setSelectedMonthID] = useState()
-  const [selectedTypeID, setSelectedTypeID] = useState()
+  const [selectedCountryID, setSelectedCountryID] = useState();
+  const [selectedMonthID, setSelectedMonthID] = useState();
+  const [selectedTypeID, setSelectedTypeID] = useState();
+  const [searchClicked, setSearchClicked] = useState(false); 
   
+  /*
   // Get all products
   useEffect(() => {
     const getAllProducts = async () => {
@@ -22,6 +24,8 @@ export function Home() {
 
     getAllProducts()
   }, []);
+  */
+
 
   // Filter products
   async function handleSearch() {
@@ -29,6 +33,13 @@ export function Home() {
       const products = await response.json();
       console.log(products);
       setProducts(products);  
+      setSearchClicked(true); 
+  };
+
+  // Show error & loading states
+  let state = <></>
+  if (selectedCountryID && selectedMonthID && selectedTypeID && searchClicked && products?.length === 0) {
+    state = <><p>No items matched your search 😟 Why not try a different month or product type?</p></>;
   };
 
 
@@ -51,9 +62,8 @@ export function Home() {
         <button onClick={handleSearch}>Search</button>
       </div>
       <div>
-      {products.length !== 0 ? 
-      (<ProductsList products={products} />) : 
-      (<p>No products in season right now.😟</p>)}  
+        { !selectedCountryID && !selectedMonthID && !selectedTypeID ? (<p>Select a filter from the list above</p>) : <ProductsList products={products} selectedCountry={selectedCountryID} selectedMonth={selectedMonthID}/> }
+        {state}
       </div>
     </div>
   );

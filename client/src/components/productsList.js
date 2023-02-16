@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductsList({products}) {
+function ProductsList({products, selectedCountry, selectedMonth }) {
 
 // Open Product Detail
 const navigate = useNavigate();
 
 const openProductDetail = (id) => {
-  navigate(`/${id}`);
+  navigate(`/${id}?country=${selectedCountry}&month=${selectedMonth}`);
 };
 
     return (
