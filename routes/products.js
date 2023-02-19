@@ -4,7 +4,7 @@ const db = require("../model/helper");
 
 /* GET all products */
 router.get('/', function(req, res, next) {
-    db("select * from Product_Season ps, Products p")
+    db("SELECT * from Products p;")
       .then(results => {
         res.send(results.data);
       })
@@ -25,7 +25,7 @@ if (!country && !month && !productType) {
   return null
 }
 
-  db(`select * from Product_Season ps, Products p where ps.ProductID = p.ID and ps.CountryID = "${country}" and ps.MonthID = "${month}" and p.TypeID = "${productType}" and ps.SeasonID = 1;`)
+  db(`SELECT * from Product_Season ps INNER JOIN Products p on p.ID = ps.ProductID where ps.CountryID = "${country}" and ps.MonthID = "${month}" and p.TypeID = "${productType}" and ps.SeasonID = 1;`)
     .then(results => {
       res.send(results.data);
       console.log(results.data);
@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
   let { month } = req.query;
   if (country && month) {
     try {
-      const response = await db(`SELECT * FROM Product_Season ps, Products p where p.ID = ${id} and ps.CountryID = "${country}" and ps.MonthID = "${month}" and ps.SeasonID = 1;`);
+      const response = await db(`SELECT * from Product_Season ps INNER JOIN Products p on p.ID = ps.ProductID where p.ID = ${id} and ps.CountryID = "${country}" and ps.MonthID = "${month}";`);
       const item = response.data[0];
   
       if (!item) {
@@ -54,7 +54,7 @@ router.get("/:id", async (req, res) => {
   }
   if (country && !month) {
     try {
-      const response = await db(`SELECT * FROM Product_Season ps, Products p where p.ID = ${id} and ps.CountryID = "${country}" and ps.SeasonID = 1;`);
+      const response = await db(`SELECT * from Product_Season ps INNER JOIN Products p on p.ID = ps.ProductID where p.ID = ${id} and ps.CountryID = "${country}" and ps.SeasonID = 1;`);
       const item = response.data;
   
       if (!item) {
@@ -62,6 +62,20 @@ router.get("/:id", async (req, res) => {
         return;
       }
       res.send(response.data);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+  if (!country && !month) {
+    try {
+      const response = await db(`SELECT * from Product_Season ps INNER JOIN Products p on p.ID = ps.ProductID where p.ID = ${id};`);
+      const item = response.data[0];
+  
+      if (!item) {
+        res.status(404).send("Not found");
+        return;
+      }
+      res.send(response.data[0]);
     } catch (error) {
       res.status(500).send(error);
     }

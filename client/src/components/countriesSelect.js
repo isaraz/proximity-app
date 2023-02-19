@@ -24,7 +24,10 @@ function CountriesSelect ({setSelectedCountryID}) {
 
   return (
       <select name="location" id="location" onChange={event => handleChange(event)}>
-          {countries.map(country => <option key={country.ID} value={country.ID}>{country.Name}</option>)}
+          {/* Added a default empty value here because the drop down wasn't selecting the first option properly when it first loaded - but I think there is a better way to do this in react, just didn't have time to look more into it*/}
+          <option selected={true} disabled="disabled">--</option>
+          {countries.map(country => <option key={country.ID} value={country.ID}>{country.Name}</option>
+          )}
       </select>
   );
 }

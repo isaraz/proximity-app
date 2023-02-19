@@ -6,14 +6,20 @@ import ProductsList from '../components/productsList';
 
 const HOSTNAME = 'http://localhost:5000';
 
+
+
 export function Home() {
+  // Get current month to set as default
+  let today = new Date()
+  let date = today.getMonth() + 1;
+
   const [products, setProducts] = useState([]);
-  const [selectedCountryID, setSelectedCountryID] = useState();
-  const [selectedMonthID, setSelectedMonthID] = useState();
+  const [selectedCountryID, setSelectedCountryID] = useState(1);
+  const [selectedMonthID, setSelectedMonthID] = useState(date);
   const [selectedTypeID, setSelectedTypeID] = useState();
   const [searchClicked, setSearchClicked] = useState(false); 
+
   
-  /*
   // Get all products
   useEffect(() => {
     const getAllProducts = async () => {
@@ -24,7 +30,7 @@ export function Home() {
 
     getAllProducts()
   }, []);
-  */
+  
 
 
   // Filter products
@@ -36,7 +42,7 @@ export function Home() {
       setSearchClicked(true); 
   };
 
-  // Show error & loading states
+  // Show error state when no items match search
   let state = <></>
   if (selectedCountryID && selectedMonthID && selectedTypeID && searchClicked && products?.length === 0) {
     state = <><p>No items matched your search 😟 Why not try a different month or product type?</p></>;
@@ -59,7 +65,7 @@ export function Home() {
         <div className='types_container'>
           <TypesSelect setSelectedTypeID={setSelectedTypeID}/>
         </div>
-        <button onClick={handleSearch}>Search</button>
+        <button className="submit_btn" onClick={handleSearch}>Search</button>
       </div>
       <div>
         { !selectedCountryID && !selectedMonthID && !selectedTypeID ? (<p>Select a filter from the list above</p>) : <ProductsList products={products} selectedCountry={selectedCountryID} selectedMonth={selectedMonthID}/> }

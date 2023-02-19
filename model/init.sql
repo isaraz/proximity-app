@@ -98,11 +98,30 @@ CREATE TABLE Product_Season (
     CountryID BIGINT NOT NULL
 );
 
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 1, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 2, 2, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 1, 3, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 1, 4, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 2, 5, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 6, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 7, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 8, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 9, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 10, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 11, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(1, 3, 12, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 1, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 2, 2, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 3, 3, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 3, 4, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 3, 5, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 3, 6, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 2, 7, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 8, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 9, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 10, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 11, 1);
+INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(2, 1, 12, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 1, 5, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 1, 6, 1);
 INSERT INTO Product_Season (ProductID, SeasonID, MonthID, CountryID) VALUES(3, 2, 7, 1);

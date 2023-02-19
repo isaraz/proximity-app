@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProductsList({products, selectedCountry, selectedMonth }) {
+function ProductsList({ products, selectedCountry, selectedMonth }) {
 
 // Open Product Detail
 const navigate = useNavigate();
@@ -13,11 +13,11 @@ const openProductDetail = (id) => {
     return (
     <div>
         <div className="row">
-            {products.map((item) => {
+            {products.map((item, index) => {
                 return (
                     <div 
                     className="column" 
-                    key={item.ID} 
+                    key={index} 
                     onClick={() => openProductDetail(item.ID)}>
                         <div className="card">{item.Name}</div>
                     </div>
