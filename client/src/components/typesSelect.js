@@ -24,7 +24,9 @@ const [types, setTypes] = useState([])
 
     return (
         <select name="types" id="types" onChange={event => handleChange(event)}>
-            {types.map(type => <option value={type.ID}>{type.Name}</option>)}
+            {/* Added a default empty value here because the drop down wasn't selecting the first option properly when it first loaded - but I think there is a better way to do this in react, just didn't have time to look more into it*/}
+            <option selected="true" disabled="disabled">--</option>
+            {types.map(type => <option key={type.ID} value={type.ID}>{type.Name}</option>)}
         </select>
     );
 }

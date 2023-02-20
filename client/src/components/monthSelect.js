@@ -24,7 +24,9 @@ function MonthsSelect ({setSelectedMonthID}) {
 
   return (
       <select name="months" id="months" onChange={event => handleChange(event)}>
-          {months.map(month => <option value={month.ID}>{month.Name}</option>)}
+        {/* Added a default empty value here because the drop down wasn't selecting the first option properly when it first loaded - but I think there is a better way to do this in react, just didn't have time to look more into it*/}
+        <option selected="true" disabled="disabled">--</option>
+          {months.map(month => <option key={month.ID} value={month.ID}>{month.Name}</option>)}
       </select>
   );
 }

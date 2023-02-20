@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const HOSTNAME = 'http://localhost:5000';
+function ProductsList({ products, selectedCountry, selectedMonth }) {
 
+// Open Product Detail
+const navigate = useNavigate();
 
-function ProductsList ({countryID, monthID, typeID}) {
-console.log("countryid del countriesSelect", countryID)
-const [products, setProducts] = useState([])
-
-    useEffect(() => { 
-        getProducts();
-    }, [countryID, monthID, typeID]); //the component will render when any of these props be modified
-    
-    const getProducts = async () => {
-        const req = await fetch(`${HOSTNAME}/products?country=${countryID}&month=${monthID}&type=${typeID}`);
-        const res = await req.json();
-        console.log(res);
-        setProducts(res);  
-    };
+const openProductDetail = (id) => {
+  navigate(`/${id}?country=${selectedCountry}&month=${selectedMonth}`);
+};
 
     return (
     <div>
-        <div class="row">
-            {products.map(item => 
-                <div class="column" key={item.ID}>
-                    <div class="card">{item.Name}</div>
-                </div>
-            )}
+        <div className="row">
+            {products.map((item, index) => {
+                return (
+                    <div 
+                    className="column" 
+                    key={index} 
+                    onClick={() => openProductDetail(item.ID)}>
+                        <div className="card">{item.Name}</div>
+                    </div>
+                );
+            })}
         </div>
     </div>
     );
